@@ -3,10 +3,10 @@
 This tool allows you to chat with your assistant locally in order to create a faster feedback loop for developers developing an assistant.
 Debug mode is enabled by default so that you can see clearer information around what exactly is getting parsed successfully.
 
-The different SSE events in the [agent protocol](https://github.com/github-technology-partners/copilot-partners/blob/main/docs/sse-events.md) that the CLI gives debug output for are:
-1. [errors](https://github.com/github-technology-partners/copilot-partners/blob/c0b6be447b95d94fff6297bae820ea8cc6d36b87/docs/copilot-errors.md)
-2. [references](https://github.com/github-technology-partners/copilot-partners/blob/c0b6be447b95d94fff6297bae820ea8cc6d36b87/docs/references.md)
-3. [confirmations](https://github.com/github-technology-partners/copilot-partners/blob/c0b6be447b95d94fff6297bae820ea8cc6d36b87/docs/confirmations.md)
+The different SSE events in the [agent protocol](TODO) that the CLI gives debug output for are:
+1. [errors](TODO)
+2. [references](TODO)
+3. [confirmations](TODO)
 
 > Note: This tool does not handle the payload verification process. To use this tool to validate your events, please temporarily disable payload verification for local testing and re-enable when completed.
 
@@ -17,7 +17,7 @@ The different SSE events in the [agent protocol](https://github.com/github-techn
    ```
 1. Install / upgrade extension
    ```shell
-   gh extension install github-technology-partners/gh-debug-cli
+   gh extension install github.com/copilot-extensions/gh-debug-cli
    ```
 1. See more info about the cli tool
    ```shell
@@ -40,6 +40,7 @@ Flags:
       --url string        url to chat with your agent (default "http://localhost:8080")
       --username string   username to display in chat (default "sparklyunicorn")
 ```
+> The token noted in the flag above is used to authenticate against the provided LLM. If you are using a different service, then this token is not needed. Generate the user-to-server token by [creating a GitHub Applicatiion](https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps) and then following the [using the device flow to generate a user access token](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app#using-the-device-flow-to-generate-a-user-access-token) to generate the token.
 2. You can alternatively set these flags as environment variables (in all caps) so you don't need to pass them in every time. The only "required" one to get this up and running is the url for your agent
 ```
 export URL="http://localhost:8080/agent/blackbeard"
