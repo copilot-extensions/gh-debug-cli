@@ -1,6 +1,6 @@
 # GH Debug CLI
 
-This tool allows you to chat with your assistant locally in order to create a faster feedback loop for developers developing an assistant.
+This tool allows you to chat with your agent locally in order to create a faster feedback loop for developers developing an extension.
 Debug mode is enabled by default so that you can see clearer information around what exactly is getting parsed successfully.
 
 The different SSE events in the [agent protocol](TODO) that the CLI gives debug output for are:
