@@ -45,7 +45,6 @@ func ParseFile(filename string) error {
 		err := json.Unmarshal([]byte(line), &data)
 		if err != nil {
 			// Skip this line if JSON is incomplete or malformed
-			// fmt.Fprintf(os.Stderr, "Warning: could not parse JSON: %v\n", err)
 			continue
 		}
 
