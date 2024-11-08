@@ -40,6 +40,14 @@ func ParseFile(filename string) error {
 			continue // skip lines without "data: "
 		}
 
+		// Handle special cases
+		if line == "[DONE]" {
+			break // stop processing if we encounter [DONE]
+		}
+		if line == "" {
+			continue // skip empty data lines
+		}
+
 		// Parse the JSON line into our `Data` struct
 		var data Data
 		err := json.Unmarshal([]byte(line), &data)
