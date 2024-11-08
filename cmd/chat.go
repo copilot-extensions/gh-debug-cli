@@ -20,6 +20,7 @@ const (
 )
 
 var chatCmd = &cobra.Command{
+	Use:              "chat",
 	Short:            "Interact with your agent.",
 	Long:             `This cli tool allows you to debug your agent by chatting with it locally.`,
 	Run:              agentChat,
@@ -72,12 +73,5 @@ func agentChat(cmd *cobra.Command, args []string) {
 	err := chat.Chat(url, username, token, debug)
 	if err != nil {
 		fmt.Println(err)
-	}
-}
-
-func Execute() {
-	err := chatCmd.Execute()
-	if err != nil {
-		os.Exit(1)
 	}
 }
