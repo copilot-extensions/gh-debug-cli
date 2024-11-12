@@ -18,11 +18,11 @@ type Data struct {
 	Choices []Choice `json:"choices"`
 }
 
-func ParseFile(filename string) error {
+func ParseFile(filename string) (string, error) {
 	// Open the file
 	file, err := os.Open(filename)
 	if err != nil {
-		return fmt.Errorf("could not open file: %w", err)
+		return "", fmt.Errorf("could not open file: %w", err)
 	}
 	defer file.Close()
 
@@ -52,8 +52,7 @@ func ParseFile(filename string) error {
 		var data Data
 		err := json.Unmarshal([]byte(line), &data)
 		if err != nil {
-			// Skip this line if JSON is incomplete or malformed
-			continue
+			return "", fmt.Errorf("error parsing JSON: %w", err)
 		}
 
 		// Extract delta.content and concatenate it
@@ -64,12 +63,10 @@ func ParseFile(filename string) error {
 
 	// Check for scanner errors
 	if err := scanner.Err(); err != nil {
-		return fmt.Errorf("error reading file: %w", err)
+		return "", fmt.Errorf("error reading file: %w", err)
 	}
 
 	// Print the final concatenated result
 	result := contentBuilder.String()
-	fmt.Println(result)
-
-	return nil
+	return result, nil
 }
