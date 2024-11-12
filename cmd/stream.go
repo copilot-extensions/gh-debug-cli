@@ -30,9 +30,10 @@ func agentStream(cmd *cobra.Command, args []string) {
 
 	file := args[0]
 
-	err := stream.ParseFile(file)
+	result, err := stream.ParseFile(file)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error parsing file: %v\n", err)
 		os.Exit(1)
 	}
+	fmt.Println(result)
 }
