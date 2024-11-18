@@ -24,7 +24,7 @@ The different SSE events in the [agent protocol](TODO) that the CLI gives debug 
    gh debug-cli -h
    ```
 
-## Using the debug tool
+## Using the debug chat tool
 1. Run the following command `gh debug-cli -h` to see the different flags that it takes in.
 ```
 > gh debug-cli -h
@@ -126,3 +126,16 @@ Be ye sure ye want a custom limerick 'bout petals ?
 Reply: [y/N]
 ```
 8. Currently, the supported event types for debug mode are references, errors, and confirmations! Have fun chatting with your assistant!
+
+
+## Using the debug stream tool
+1. to quickly parse agent response run cmd go run `main.go stream [local file name]` for example `gh-debug-cli stream test.txt`   
+
+2. tool will take print out data packet for easy readability
+```
+data: {"choices":[{"delta":{"content":"A closure in JavaScript "}}],"created":1727120830,"id":"chatcmpl-AAjJW0Nz9E2Gu1P6YQMFqqmn10mdR","model":"gpt-4o-2024-05-13","system_fingerprint":"fp_80a1bad4c7"}
+data: {"choices":[{"delta":{"content":"is a function that retains access "}}],"created":1727120831,"id":"chatcmpl-AAjJW0Nz9E2Gu1P6YQMFqqmn10mdR","model":"gpt-4o-2024-05-13","system_fingerprint":"fp_80a1bad4c7"}
+data: {"choices":[{"delta":{"content":"to its lexical scope, even "}}],"created":1727120832,"id":"chatcmpl-AAjJW0Nz9E2Gu1P6YQMFqqmn10mdR","model":"gpt-4o-2024-05-13","system_fingerprint":"fp_80a1bad4c7"}
+data: {"choices":[{"delta":{"content":"when the function is executed "}}],"created":1727120833,"id":"chatcmpl-AAjJW0Nz9E2Gu1P6YQMFqqmn10mdR","model":"gpt-4o-2024-05-13","system_fingerprint":"fp_80a1bad4c7"}
+data: {"choices":[{"delta":{"content":"outside that scope. "}}],"created":1727120834,"id":"chatcmpl-AAjJW0Nz9E2Gu1P6YQMFqqmn10mdR","model":"gpt-4o-2024-05-13","system_fingerprint":"fp_80a1bad4c7"}
+```
