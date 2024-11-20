@@ -129,7 +129,7 @@ Reply: [y/N]
 
 
 ## Using the debug stream tool
-1. to quickly parse agent response run cmd go run `main.go stream [local file name]` for example `gh-debug-cli stream test.txt`   
+1. to quickly parse agent response run cmd go run `main.go stream --file [local file name]` for example `gh-debug-cli stream --file test.txt`   
 
 2. tool will take print out data packet for easy readability
 ```
