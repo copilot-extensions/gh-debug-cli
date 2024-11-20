@@ -23,7 +23,6 @@ var streamCmd = &cobra.Command{
 
 func init() {
 	streamCmd.PersistentFlags().String(streamCmdFileFlag, "", "Parse agent responses from a file")
-	// rootCmd.AddCommand(streamCmd)
 }
 
 func agentStream(cmd *cobra.Command, args []string) {
