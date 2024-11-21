@@ -21,13 +21,13 @@ The different SSE events in the [agent protocol](TODO) that the CLI gives debug 
    ```
 1. See more info about the cli tool
    ```shell
-   gh debug-cli -h
+   gh debug-cli chat -h
    ```
 
 ## Using the debug chat tool
-1. Run the following command `gh debug-cli -h` to see the different flags that it takes in.
+1. Run the following command `gh debug-cli chat -h` to see the different flags that it takes in.
 ```
-> gh debug-cli -h
+> gh debug-cli chat -h
 This cli tool allows you to debug your agent by chatting with it locally.
 
 Usage:
@@ -47,7 +47,7 @@ export URL="http://localhost:8080/agent/blackbeard"
 ```
 3. When you run the CLI, you will see any flags that were previously set in your environment variables as the output.
 ```
->  gh debug-cli
+>  gh debug-cli chat
 Setting url to http://localhost:8080/agents/blackbeard
 
 Start typing to chat with your assistant...
@@ -55,7 +55,7 @@ sparklyunicorn:
 ```
 4. Type something to simulate chatting with your assistant.
 ```
-> gh debug-cli
+> gh debug-cli chat
 Setting url to http://localhost:8080/agents/blackbeard
 
 Start typing to chat with your assistant...
@@ -114,7 +114,7 @@ assistant: Avast, @monalisa! Me apologies if I didn't quite understand yer reque
 ```
 7. And if debug mode was set to false, then I would only see the confirmation prompt itself.
 ```
-gh debug-cli --log-level none
+gh debug-cli chat --log-level none
 Setting url to http://localhost:8080/agents/blackbeard
 
 Start typing to chat with your assistant...
@@ -128,10 +128,14 @@ Reply: [y/N]
 8. Currently, the supported event types for debug mode are references, errors, and confirmations! Have fun chatting with your assistant!
 
 
-## Using the debug stream tool
-1. to quickly parse agent response run cmd go run `main.go stream --file [local file name]` for example `gh-debug-cli stream --file test.txt`   
+## Using the gh debug stream tool
+1. To quickly parse an agent response by running command `gh debug-cli stream --file test.txt`  
+   
+2. This tool will take llm streaming response and parse it to make it more readable
 
-2. tool will take print out data packet for easy readability
+   - In this example, if a file test.txt holds the following streamed response. Then will return the response "A closure in JavaScript is a function that retains access... " This will make repsonse more readable.
+
+example of .txt file
 ```
 data: {"choices":[{"delta":{"content":"A closure in JavaScript "}}],"created":1727120830,"id":"chatcmpl-AAjJW0Nz9E2Gu1P6YQMFqqmn10mdR","model":"gpt-4o-2024-05-13","system_fingerprint":"fp_80a1bad4c7"}
 data: {"choices":[{"delta":{"content":"is a function that retains access "}}],"created":1727120831,"id":"chatcmpl-AAjJW0Nz9E2Gu1P6YQMFqqmn10mdR","model":"gpt-4o-2024-05-13","system_fingerprint":"fp_80a1bad4c7"}
