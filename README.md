@@ -127,7 +127,6 @@ Reply: [y/N]
 ```
 8. Currently, the supported event types for debug mode are references, errors, and confirmations! Have fun chatting with your assistant!
 
-
 ## Using the gh debug stream tool
 1. To quickly parse an agent response by running command `gh debug-cli stream --file test.txt`  
    
@@ -136,6 +135,7 @@ Reply: [y/N]
    - In this example, if a file test.txt holds the following streamed response. Then will return the response "A closure in JavaScript is a function that retains access... " This will make repsonse more readable.
 
 example of .txt file
+
 ```
 data: {"choices":[{"delta":{"content":"A closure in JavaScript "}}],"created":1727120830,"id":"chatcmpl-AAjJW0Nz9E2Gu1P6YQMFqqmn10mdR","model":"gpt-4o-2024-05-13","system_fingerprint":"fp_80a1bad4c7"}
 data: {"choices":[{"delta":{"content":"is a function that retains access "}}],"created":1727120831,"id":"chatcmpl-AAjJW0Nz9E2Gu1P6YQMFqqmn10mdR","model":"gpt-4o-2024-05-13","system_fingerprint":"fp_80a1bad4c7"}
@@ -143,3 +143,10 @@ data: {"choices":[{"delta":{"content":"to its lexical scope, even "}}],"created"
 data: {"choices":[{"delta":{"content":"when the function is executed "}}],"created":1727120833,"id":"chatcmpl-AAjJW0Nz9E2Gu1P6YQMFqqmn10mdR","model":"gpt-4o-2024-05-13","system_fingerprint":"fp_80a1bad4c7"}
 data: {"choices":[{"delta":{"content":"outside that scope. "}}],"created":1727120834,"id":"chatcmpl-AAjJW0Nz9E2Gu1P6YQMFqqmn10mdR","model":"gpt-4o-2024-05-13","system_fingerprint":"fp_80a1bad4c7"}
 ```
+
+## Copilot Extensions Documentation
+- [Using Copilot Extensions](https://docs.github.com/en/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat)
+- [About building Copilot Extensions](https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions)
+- [Set up process](https://docs.github.com/en/copilot/building-copilot-extensions/setting-up-copilot-extensions)
+- [Communicating with the Copilot platform](https://docs.github.com/en/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-the-copilot-platform)
+- [Communicating with GitHub](https://docs.github.com/en/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-github)

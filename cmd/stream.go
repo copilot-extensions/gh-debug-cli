@@ -15,9 +15,9 @@ const (
 
 // streamCmd represents the new command for streaming functionality
 var streamCmd = &cobra.Command{
-	Use:   "stream [file]",
-	Short: "Stream data to your agent",
-	Long:  `The stream command allows you to initiate a data stream to your agent.`,
+	Use:   "stream --file [filename]",
+	Short: "Parse stream data from agent",
+	Long:  `Allows you to parse a data stream to your agent response.`,
 	Run:   agentStream,
 }
 
@@ -28,7 +28,11 @@ func init() {
 func agentStream(cmd *cobra.Command, args []string) {
 	fmt.Println("stream command executed successfully")
 
-	file := args[0]
+	file, _ := cmd.Flags().GetString(streamCmdFileFlag)
+	if file == "" {
+		fmt.Fprintln(os.Stderr, "Error: --file [file] is required")
+		os.Exit(1)
+	}
 
 	result, err := stream.ParseFile(file)
 	if err != nil {
